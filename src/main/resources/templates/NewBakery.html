@@ -10,16 +10,17 @@
     <div th:insert="fragments/M1"></div>
     <div class="main">
         <div th:insert="fragments/H2"></div>
+
         <main class="content">
-            <div class="container-fluid p-0" data-select2-id="10">
+            <div class="container-fluid p-0">
 
-                <h1 class="h3 mb-3">Add New Bakery</h1>
+                <h1 class="h3 mb-3">New Bakery</h1>
 
-                <div class="row" data-select2-id="9">
-                    <div class="col-12" data-select2-id="8">
+                <div class="row">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form id="validation-form" novalidate="novalidate">
+                                <form id="validation-form">
                                     <div class="form-group">
                                         <label class="form-label">ID</label>
                                         <input type="text" class="form-control" name="validation-id" placeholder="ID">
@@ -33,8 +34,12 @@
                                         <input type="text" class="form-control" name="validation-address" placeholder="Address">
                                     </div>
                                     <div class="form-group">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" name="validation-phone" placeholder="Phone">
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-label">Email</label>
-                                        <input type="text" class="form-control" name="validation-email" placeholder="Email" aria-invalid="true" required="">
+                                        <input type="text" class="form-control" name="validation-email" placeholder="Email">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">User Name</label>
@@ -42,17 +47,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="validation-password" placeholder="Password" required="">
+                                        <input type="password" class="form-control" name="validation-password" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Confirm password</label>
                                         <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password">
                                     </div>
-
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                 </form>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -63,6 +65,7 @@
     </div>
 </div>
 <script src="./js/app.js"></script>
+<script src="./js/validation.js"></script>
 <script src="https://kit.fontawesome.com/837cd5ce58.js" crossorigin="anonymous"></script>
 </body>
 </html>
