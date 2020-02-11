@@ -1,4 +1,4 @@
-package bao.nguyen.PIS.controller
+package bao.nguyen.PIS.common
 
 abstract class BaseController  {
 }
