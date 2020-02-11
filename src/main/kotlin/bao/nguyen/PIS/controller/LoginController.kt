@@ -14,4 +14,9 @@ class LoginController {
     fun index(): String {
         return "redirect:/signin"
     }
+
+    @GetMapping("/home")
+    fun home(): String {
+        return "home"
+    }
 }
