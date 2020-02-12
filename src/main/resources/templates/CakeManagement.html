@@ -9,7 +9,7 @@
 <div class="wrapper">
     <div th:insert="fragments/M1"></div>
     <div class="main">
-        <div th:insert="fragments/H2"></div>
+        <div th:insert="fragments/H3"></div>
 
         <main class="content">
             <div class="container-fluid p-0">
@@ -17,7 +17,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="/addnewbakery"><h5 class="card-title mb-0"><i class="fas fa-plus btn btn-lg btn-primary pr-2">&nbsp New</i></h5></a>
+                                <a href="/addnewcake"><h5 class="card-title mb-0"><i class="fas fa-plus btn btn-lg btn-primary pr-2">&nbsp New</i></h5></a>
                             </div>
                             <div class="card-body">
                                 <table id="datatables-clients" class="table table-striped" style="width:100%">
@@ -25,10 +25,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>User Name</th>
+                                        <th>Photo</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -36,49 +34,41 @@
                                     <tr>
                                         <td>No.1</td>
                                         <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
+                                        <td></td>
                                         <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>No.2</td>
+                                        <td>No.1</td>
                                         <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
+                                        <td></td>
                                         <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>No.3</td>
+                                        <td>No.1</td>
                                         <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
+                                        <td></td>
                                         <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>No.4</td>
+                                        <td>No.1</td>
                                         <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
+                                        <td></td>
                                         <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -94,7 +84,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-    function deleteBakery() {
+    function deleteCake() {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
