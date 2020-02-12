@@ -21,14 +21,14 @@
                     <div class="col-12" data-select2-id="8">
                         <div class="card">
                             <div class="card-body">
-                                <form id="validation-form" novalidate="novalidate" method="POST"  th:action="@{/saveBakery}" th:object="${bakeryForm}">
+                                <form id="validation-form"class="needs-validation" novalidate method="POST"  th:action="@{/saveBakery}" th:object="${bakeryForm}">
                                     <div class="form-group">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" name="validation-name" placeholder="Name" th:field="*{name}">
+                                        <input type="text" class="form-control" name="validation-name" placeholder="Name" th:field="*{name}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Address</label>
-                                        <input type="text" class="form-control" name="validation-address" placeholder="Address" th:field="*{address}">
+                                        <input type="text" class="form-control" name="validation-address" placeholder="Address"  th:field="*{address}">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Email</label>
@@ -36,10 +36,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">User Name</label>
-                                        <input type="text" class="form-control" name="validation-username" placeholder="User Name" th:field="*{username}">
+                                        <input type="text" class="form-control" name="validation-username" placeholder="User Name" th:field="*{username}" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="validation-username" th:field="*{id}">
+                                        <input type="hidden" class="form-control" th:field="*{id}">
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
