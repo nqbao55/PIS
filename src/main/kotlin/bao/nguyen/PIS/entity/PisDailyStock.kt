@@ -38,7 +38,4 @@ data class PisDailyStock (
     @ManyToOne
     @JoinColumn(name="cake_id")
     var pisCake:PisCake?=null 
-): BaseEntity<Int>() {
-    @Id
-    var id: String = TODO("initialize me")
-}
+): BaseEntity<Int>()

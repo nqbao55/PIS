@@ -26,7 +26,7 @@ data class PisBakery (
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    // 
+    //
      @NotNull
     @Size( min = 1, max = 255 )
     var name : String = String(),
@@ -60,7 +60,4 @@ data class PisBakery (
     // PisDailyStock
     @OneToMany(mappedBy="pisBakery")
     var listOfPisDailyStock:List<PisDailyStock> = emptyList() 
-): BaseEntity<Int>() {
-    @javax.persistence.Id
-    var id: String = TODO("initialize me")
-}
+): BaseEntity<Int>()

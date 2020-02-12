@@ -40,7 +40,4 @@ data class PisSetting (
     @ManyToOne
     @JoinColumn(name="bakery_id")
     var pisBakery:PisBakery?=null 
-): BaseEntity<Int>() {
-    @Id
-    var id: String = TODO("initialize me")
-}
+): BaseEntity<Int>()

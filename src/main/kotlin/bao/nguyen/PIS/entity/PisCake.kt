@@ -40,7 +40,4 @@ data class PisCake (
     // PisDailyStock
     @OneToMany(mappedBy="pisCake")
     var listOfPisDailyStock:List<PisDailyStock> = emptyList() 
-): BaseEntity<Int>() {
-    @Id
-    var id: String = TODO("initialize me")
-}
+): BaseEntity<Int>()
