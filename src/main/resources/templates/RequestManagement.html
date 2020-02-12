@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <link href="./css/classic.css" rel="stylesheet">
-    <title>Cake Management</title>
+    <title>Request Management</title>
 </head>
 <body>
 <div class="wrapper">
     <div th:insert="fragments/M1"></div>
     <div class="main">
-        <div th:insert="fragments/H3"></div>
+        <div th:insert="fragments/H4"></div>
 
         <main class="content">
             <div class="container-fluid p-0">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="/addnewcake"><h5 class="card-title mb-0"><i class="fas fa-plus btn btn-lg btn-primary pr-2">&nbsp New</i></h5></a>
-                            </div>
                             <div class="card-body">
                                 <table id="datatables-clients" class="table table-striped" style="width:100%">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Photo</th>
-                                        <th>Price</th>
+                                        <th>Bakery Name</th>
+                                        <th>Cake</th>
+                                        <th>Prices</th>
+                                        <th>Request Date</th>
+                                        <th>Status</th>
                                         <th style="width: 50px">Action</th>
                                     </tr>
                                     </thead>
@@ -35,42 +34,36 @@
                                         <td>No.1</td>
                                         <td>Garrett Winters</td>
                                         <td></td>
-                                        <td>0987654321</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><span class="badge badge-warning">Doing</span></td>
                                         <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>No.1</td>
                                         <td>Garrett Winters</td>
                                         <td></td>
-                                        <td>0987654321</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><span class="badge badge-success">Done</span></td>
                                         <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>No.1</td>
                                         <td>Garrett Winters</td>
                                         <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
                                         <td></td>
-                                        <td>0987654321</td>
+                                        <td></td>
+                                        <td><span class="badge badge-info">Open</span></td>
                                         <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+
                                         </td>
                                     </tr>
+
                                     </tbody>
                                 </table>
                             </div>

@@ -33,13 +33,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
+                                    <tr th:each="list : ${pisBakery}">
+                                        <td th:text="list."></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
                                             <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
                                             <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>

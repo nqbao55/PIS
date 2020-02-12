@@ -15,4 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 interface PisBakeryRepository : JpaRepository<PisBakery, Int> {
+
 }
