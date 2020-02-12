@@ -13,4 +13,11 @@ class BakeryManagementService {
     {
         return pisBakeryRepository.findAll()
     }
+    fun get(id: Int): PisBakery {
+        return pisBakeryRepository.findById(id).get()
+    }
+    fun delete(id: Int)
+    {
+        return pisBakeryRepository.deleteById(id)
+    }
 }

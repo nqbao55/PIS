@@ -31,41 +31,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
+                                    <tr th:each="list : ${pisCake}">
+                                        <td th:text="${list.id}"></td>
+                                        <td th:text="${list.name}"></td>
+                                        <td ></td>
+                                        <td th:text="${list.price}"></td>
                                         <td>
                                             <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
                                             <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link href="./css/classic.css" rel="stylesheet">
+    <link  href="./css/classic.css" rel="stylesheet">
+
     <title>Bakery Management</title>
 </head>
 <body>
@@ -34,53 +36,17 @@
                                     </thead>
                                     <tbody>
                                     <tr th:each="list : ${pisBakery}">
-                                        <td th:text="list."></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td th:text="${list.id}"></td>
+                                        <td th:text="${list.name}"></td>
+                                        <td th:text="${list.address}"></td>
+                                        <td th:text="${list.phone}"></td>
+                                        <td th:text="${list.email}"></td>
+                                        <td th:text="${list.username}"></td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/editbakery/{id}(id=${list.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a onclick="deleteBakery()" th:onclick="'location.href=\''+@{/delete/{id}(id=${list.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.2</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.3</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.4</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    </tr> 
                                     </tbody>
                                 </table>
                             </div>
