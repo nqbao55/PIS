@@ -1,17 +1,4 @@
 $(function() {
-    // Initialize Select2 select box
-    $("select[name=\"validation-select2\"]").select2({
-        allowClear: true,
-        placeholder: "Select gear...",
-    }).change(function() {
-        $(this).valid();
-    });
-    // Initialize Select2 multiselect box
-    $("select[name=\"validation-select2-multi\"]").select2({
-        placeholder: "Select gear...",
-    }).change(function() {
-        $(this).valid();
-    });
     // Trigger validation on tagsinput change
     $("input[name=\"validation-bs-tagsinput\"]").on("itemAdded itemRemoved", function() {
         $(this).valid();
@@ -24,6 +11,9 @@ $(function() {
             "validation-email": {
                 required: true,
                 email: true
+            },
+            "validation-price": {
+                required: true
             },
             "validation-password": {
                 required: true,
@@ -39,16 +29,16 @@ $(function() {
                 required: true
             },
             "validation-name": {
-                required: true,
+                required: true
             },
             "validation-address": {
                 required: true
             },
             "validation-username": {
-                required: true,
+                required: true
             },
             "validation-phone": {
-                required: true,
+                required: true
             }
         },
         // Errors
@@ -74,5 +64,14 @@ $(function() {
         unhighlight: function(element) {
             $(element).parents(".form-group").find(".is-invalid").removeClass("is-invalid");
         }
+    });
+});
+$(function() {
+    // Datatables clients
+    $("#datatables-clients").DataTable({
+        responsive: true,
+        order: [
+            [0, "asc"]
+        ]
     });
 });

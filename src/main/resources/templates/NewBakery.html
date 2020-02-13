@@ -2,7 +2,7 @@
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <link href="./css/classic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
     <title>Bakery Management</title>
 </head>
 <body>
@@ -23,31 +23,31 @@
                                 <form id="validation-form" method="post" th:action="@{addnewbakery}" th:object="${dataForm}">
                                     <div class="form-group">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" name="validation-name" placeholder="Name" th:field="*{name}" >
+                                        <input type="text" class="form-control" name="validation-name" placeholder="Name" th:field="*{name}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Address</label>
-                                        <input type="text" class="form-control" name="validation-address" placeholder="Address" th:field="*{address}" >
+                                        <input type="text" class="form-control" name="validation-address" placeholder="Address" th:field="*{address}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Phone</label>
-                                        <input type="text" class="form-control" name="validation-phone" placeholder="Phone" th:field="*{phone}" >
+                                        <input type="text" class="form-control" name="validation-phone" placeholder="Phone" th:field="*{phone}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Email</label>
-                                        <input type="text" class="form-control" name="validation-email" placeholder="Email" th:field="*{email}" >
+                                        <input type="email" class="form-control" name="validation-email" placeholder="Email" th:field="*{email}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">User Name</label>
-                                        <input type="text" class="form-control" name="validation-username" placeholder="User Name" th:field="*{username}" >
+                                        <input type="text" class="form-control" name="validation-username" placeholder="User Name" th:field="*{username}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="validation-password" placeholder="Password" th:field="*{password}" >
+                                        <input type="password" class="form-control" name="validation-password" placeholder="Password" th:field="*{password}" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Confirm password</label>
-                                        <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password" th:field="*{password}">
+                                        <input type="password" class="form-control" name="validation-password-confirmation" placeholder="Confirm password" th:field="*{password}" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
@@ -60,8 +60,8 @@
         </main>
     </div>
 </div>
-<script src="./js/app.js"></script>
-<script src="./js/validation.js"></script>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+<script type="text/javascript" th:src="@{/js/validation.js}"></script>
 <script src="https://kit.fontawesome.com/837cd5ce58.js" crossorigin="anonymous"></script>
 </body>
 </html>

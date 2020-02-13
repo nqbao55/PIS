@@ -21,9 +21,6 @@ class BakeryManagementController {
     @Autowired
     lateinit var bakeryManagementService: BakeryManagementService
 
-    @Autowired
-    lateinit var bakeryRepository: PisBakeryRepository
-
     @GetMapping("/bakerymanagement")
     fun detail(model: Model): String {
         var pisBakery: List<PisBakery> = bakeryManagementService.findAll()
@@ -39,7 +36,7 @@ class BakeryManagementController {
 
     @PostMapping("addnewbakery")
     fun doAddPis(@Validated @ModelAttribute pisBakery: PisBakery):String{
-        bakeryRepository.save(pisBakery)
+        bakeryManagementService.save(pisBakery)
         return "redirect:/bakerymanagement"
     }
 
@@ -57,7 +54,7 @@ class BakeryManagementController {
     }
 
     @RequestMapping("/delete/{id}")
-    fun deleteProduct(@PathVariable(name = "id") id : Int): String {
+    fun deleteBakery(@PathVariable(name = "id") id : Int): String {
         bakeryManagementService.delete(id)
         return "redirect:/bakerymanagement"
     }

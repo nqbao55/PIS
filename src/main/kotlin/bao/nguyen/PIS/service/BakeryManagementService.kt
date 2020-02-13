@@ -25,6 +25,10 @@ class BakeryManagementService {
         return pisBakeryRepository.deleteById(id)
     }
 
+    fun save(pisBakery: PisBakery){
+        pisBakeryRepository.save(pisBakery)
+    }
+
     fun intBakeryFormBy(bakeryId:Int):PisBakeryForm{
         var form = PisBakeryForm()
         val pisBakery: PisBakery = get(bakeryId)

@@ -2,7 +2,7 @@
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <link href="./css/classic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
     <title>Cake Management</title>
 </head>
 <body>
@@ -19,24 +19,24 @@
                     <div class="col-12" data-select2-id="8">
                         <div class="card">
                             <div class="card-body">
-                                <form id="validation-form" novalidate="novalidate">
+                                <form id="validation-form" >
                                     <div class="form-group">
                                         <label class="form-label">ID</label>
                                         <input type="text" class="form-control" name="validation-id" placeholder="ID">
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Name</label>
-                                        <input type="text" class="form-control" name="validation-name" placeholder="Name">
+                                        <input type="text" class="form-control" name="validation-name" placeholder="Name" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Photo</label>
                                         <div>
-                                            <input type="file" class="validation-photo" name="validation-photo">
+                                            <input type="file" class="validation-photo" name="validation-photo" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Price</label>
-                                        <input type="text" class="form-control" name="validation-price" placeholder="Price">
+                                        <input type="text" class="form-control" name="validation-price" placeholder="Price" required>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -50,8 +50,8 @@
         </main>
     </div>
 </div>
-<script src="./js/app.js"></script>
-<script src="./js/validation.js"></script>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+<script type="text/javascript" th:src="@{/js/validation.js}"></script>
 <script src="https://kit.fontawesome.com/837cd5ce58.js" crossorigin="anonymous"></script>
 </body>
 </html>
