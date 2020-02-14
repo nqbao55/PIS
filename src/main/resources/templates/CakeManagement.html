@@ -37,7 +37,7 @@
                                         <td ></td>
                                         <td th:text="${list.price}"></td>
                                         <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/editcake/{id}(id=${list.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
                                             <a th:onclick="'location.href=\''+@{/deletecake/{id}(id=${list.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
