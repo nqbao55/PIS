@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class LoginController {
-    @GetMapping("/signin")
+    @GetMapping("/login")
     fun login(): String {
-        return "signin"
+        return "Login"
     }
 
     @GetMapping("/")
     fun index(): String {
-        return "redirect:/signin"
+        return "redirect:/home"
     }
 
     @GetMapping("/home")
