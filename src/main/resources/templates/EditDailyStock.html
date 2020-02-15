@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <link href="./css/classic.css" rel="stylesheet">
+    <title>Edit Daily Stock</title>
+</head>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/M1"></div>
+    <div class="main">
+        <div th:insert="fragments/H1"></div>
+        <main class="content">
+            <div class="container-fluid p-0" data-select2-id="10">
+                <h1 class="h3 mb-3">Edit Bakery</h1>
+                <div class="row" data-select2-id="9">
+                    <div class="col-12" data-select2-id="8">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="validation-form" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label class="form-label">ID</label>
+                                        <input type="text" class="form-control" name="validation-id" placeholder="ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="validation-name" placeholder="Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Address</label>
+                                        <input type="text" class="form-control" name="validation-address" placeholder="Address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="text" class="form-control" name="validation-email" placeholder="Email" aria-invalid="true" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">User Name</label>
+                                        <input type="text" class="form-control" name="validation-username" placeholder="User Name">
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="./js/app.js"></script>
+</body>
+</html>

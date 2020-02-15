@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <link href="./css/classic.css" rel="stylesheet">
+    <title>DailyStock</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:insert="fragments/M1"></div>
+        <div class="main">
+            <div th:insert="fragments/H1"></div>
+            <main class="content">
+                <div class="container-fluid p-0" data-select2-id="10">
+                    <h1 class="h3 mb-3">Daily Stock</h1>
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped table-bordered" style="width:100%" th:object="${dailyStock}">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th th:each="cake :${listCake}" th:text="${cake.name}" style="text-align: center"></th>
+                                        <th style="text-align: center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="list : ${dailyStock}">
+                                    <td th:text="${list.key.name}"></td>
+                                    <td th:each="setting : ${list.value}" th:text="${setting.piece}" style="text-align: center"></td>
+                                    <td style="text-align: center">
+                                        <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+</html>
