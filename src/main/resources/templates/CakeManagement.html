@@ -2,7 +2,7 @@
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <link href="./css/classic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
     <title>Cake Management</title>
 </head>
 <body>
@@ -31,44 +31,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
+                                    <tr th:each="list : ${pisCake}">
+                                        <td th:text="${list.id}"></td>
+                                        <td th:text="${list.name}"></td>
+                                        <td ></td>
+                                        <td th:text="${list.price}"></td>
                                         <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.1</td>
-                                        <td>Garrett Winters</td>
-                                        <td></td>
-                                        <td>0987654321</td>
-                                        <td>
-                                            <a href="/editcake"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteCake()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/editcake/{id}(id=${list.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/deletecake/{id}(id=${list.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -105,30 +75,8 @@
 
     }
 </script>
-<!--<script>-->
-<!--    function deleteBakery() {-->
-<!--        var txt;-->
-<!--        var r = confirm("Are you sure ?");-->
-<!--        if (r == true) {-->
-
-<!--        } else {-->
-
-<!--        }-->
-<!--        // document.getElementById("demo").innerHTML = txt;-->
-<!--    }-->
-<!--</script>-->
-<script src="./js/app.js"></script>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+<script type="text/javascript" th:src="@{/js/validation.js}"></script>
 <script src="https://kit.fontawesome.com/837cd5ce58.js" crossorigin="anonymous"></script>
-<script>
-    $(function() {
-        // Datatables clients
-        $("#datatables-clients").DataTable({
-            responsive: true,
-            order: [
-                [1, "asc"]
-            ]
-        });
-    });
-</script>
 </body>
 </html>

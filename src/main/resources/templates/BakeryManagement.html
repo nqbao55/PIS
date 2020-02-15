@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link href="./css/classic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
+
     <title>Bakery Management</title>
 </head>
 <body>
@@ -34,53 +36,17 @@
                                     </thead>
                                     <tbody>
                                     <tr th:each="list : ${pisBakery}">
-                                        <td th:text="list."></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td th:text="${list.id}"></td>
+                                        <td th:text="${list.name}"></td>
+                                        <td th:text="${list.address}"></td>
+                                        <td th:text="${list.phone}"></td>
+                                        <td th:text="${list.email}"></td>
+                                        <td th:text="${list.username}"></td>
                                         <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/editbakery/{id}(id=${list.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/delete/{id}(id=${list.id})}+'\''" ><i class="align-middle test" data-feather="trash"></i></a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.2</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.3</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>No.4</td>
-                                        <td>Garrett Winters</td>
-                                        <td>Good Guys</td>
-                                        <td>0987654321</td>
-                                        <td>garrett@winters.com</td>
-                                        <td>garrett</td>
-                                        <td>
-                                            <a href="/editbakery"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a onclick="deleteBakery()"  href="#"><i class="align-middle" data-feather="trash"></i></a>
-                                        </td>
-                                    </tr>
+                                    </tr> 
                                     </tbody>
                                 </table>
                             </div>
@@ -93,52 +59,31 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script>
-    function deleteBakery() {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.value) {
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
-        }
-    })
-
-    }
-</script>
 <!--<script>-->
 <!--    function deleteBakery() {-->
-<!--        var txt;-->
-<!--        var r = confirm("Are you sure ?");-->
-<!--        if (r == true) {-->
-
-<!--        } else {-->
-
+<!--        Swal.fire({-->
+<!--            title: 'Are you sure?',-->
+<!--            text: "You won't be able to revert this!",-->
+<!--            icon: 'warning',-->
+<!--            showCancelButton: true,-->
+<!--            confirmButtonColor: '#3085d6',-->
+<!--            cancelButtonColor: '#d33',-->
+<!--            confirmButtonText: 'Yes, delete it!'-->
+<!--        }).then((result) => {-->
+<!--            if (result.value) {-->
+<!--            Swal.fire(-->
+<!--                'location.href=\''+@{/delete/{id}(id=${list.id})}+'\'',-->
+<!--                'Deleted!',-->
+<!--                'Your file has been deleted.',-->
+<!--                'success'-->
+<!--            )-->
 <!--        }-->
-<!--        // document.getElementById("demo").innerHTML = txt;-->
+<!--    })-->
+
 <!--    }-->
 <!--</script>-->
-<script src="./js/app.js"></script>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+<script type="text/javascript" th:src="@{/js/validation.js}"></script>
 <script src="https://kit.fontawesome.com/837cd5ce58.js" crossorigin="anonymous"></script>
-<script>
-    $(function() {
-        // Datatables clients
-        $("#datatables-clients").DataTable({
-            responsive: true,
-            order: [
-                [1, "asc"]
-            ]
-        });
-    });
-</script>
 </body>
 </html>
