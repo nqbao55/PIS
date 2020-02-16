@@ -9,7 +9,12 @@
 <div class="wrapper">
     <div th:insert="fragments/M1"></div>
     <div class="main">
-        <div th:insert="fragments/H1"></div>
+        <nav class="navbar navbar-expand navbar-light bg-white">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+            <div class="navbar-collapse collapse" th:insert="fragments/H1"></div>
+        </nav>
 
     </div>
 </div>
