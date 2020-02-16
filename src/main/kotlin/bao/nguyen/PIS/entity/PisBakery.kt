@@ -26,15 +26,10 @@ data class PisBakery (
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    //
+    // 
      @NotNull
     @Size( min = 1, max = 255 )
     var name : String = String(),
-
-	// 
-    @NotNull
-    @Size( min = 1, max = 255 )
-    var username : String = String(),
 
 	// 
     @NotNull
@@ -53,11 +48,23 @@ data class PisBakery (
     @Size( max = 255 )
     var email : String? = null,
     
+    // PisUser
+    @OneToMany(mappedBy="pisBakery")
+    var listOfPisUser:List<PisUser> = emptyList() ,
+    
+    // PisRequest
+    @OneToMany(mappedBy="pisBakery")
+    var listOfPisRequest:List<PisRequest> = emptyList() ,
+    
     // PisSetting
     @OneToMany(mappedBy="pisBakery")
     var listOfPisSetting:List<PisSetting> = emptyList() ,
     
-    // PisDailyStock
+    // PisDailySale
     @OneToMany(mappedBy="pisBakery")
-    var listOfPisDailyStock:List<PisDailyStock> = emptyList() 
+    var listOfPisDailySale:List<PisDailySale> = emptyList() ,
+    
+    // PisStore
+    @OneToMany(mappedBy="pisBakery")
+    var listOfPisStore:List<PisStore> = emptyList() 
 ): BaseEntity<Int>()

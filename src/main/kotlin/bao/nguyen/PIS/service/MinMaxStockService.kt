@@ -1,13 +1,9 @@
 package bao.nguyen.PIS.service
 
 import bao.nguyen.PIS.common.BaseService
-import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.entity.PisCake
-import bao.nguyen.PIS.entity.PisDailyStock
 import bao.nguyen.PIS.entity.PisSetting
-import bao.nguyen.PIS.form.DailyStockForm
 import bao.nguyen.PIS.form.MinMaxStockForm
-import bao.nguyen.PIS.repository.PisCakeRepository
 import bao.nguyen.PIS.repository.PisSettingRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -32,7 +28,7 @@ class MinMaxStockService : BaseService(){
     }
 
     fun updateMinMaxStock(form: MinMaxStockForm){
-        // get list DailyStock
+        // get list Setting
         form.listSetting.forEachIndexed { index, setting ->
             var minMaxStock = settingRepository.findById(form.listId[index]).get()
             minMaxStock.minStock = form.listSetting[index].minStock

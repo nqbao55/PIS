@@ -1,8 +1,6 @@
 package bao.nguyen.PIS.form
 
-import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.entity.PisCake
-import bao.nguyen.PIS.entity.PisDailyStock
 import bao.nguyen.PIS.entity.PisSetting
 import javax.validation.constraints.NotNull
 

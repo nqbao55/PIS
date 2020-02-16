@@ -37,7 +37,7 @@ class BakeryManagementService {
         form.address = pisBakery.address.toString()
         form.email = pisBakery.email.toString()
         form.phone = pisBakery.phone.toString()
-        form.username = pisBakery.username.toString()
+        form.username = pisBakery.name.toString()
         return form
     }
 
@@ -47,8 +47,6 @@ class BakeryManagementService {
         bakery.address = form.address
         bakery.email = form.email
         bakery.phone = form.phone
-        bakery.username = form.username
-
         pisBakeryRepository.save(bakery)
     }
 }

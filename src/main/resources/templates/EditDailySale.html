@@ -15,20 +15,20 @@
         <main class="content">
             <div class="container-fluid p-0" data-select2-id="10">
 
-                <h1 class="h3 mb-3" th:text="${dailyStockForm.cake.name}"></h1>
+                <h1 class="h3 mb-3" th:text="${dailySaleForm.cake.name}"></h1>
 
                 <div class="row" data-select2-id="9">
                     <div class="col-12" data-select2-id="8">
                         <div class="card">
                             <div class="card-body">
-                                <form id="validation-form" class="needs-validation" novalidate method="POST"  th:action="@{/updateDailyStock}" th:object="${dailyStockForm}">
-                                    <th:block th:each="listDailyStock,stat :*{listDailyStock}">
+                                <form id="validation-form" class="needs-validation" novalidate method="POST"  th:action="@{/updateDailySale}" th:object="${dailySaleForm}">
+                                    <th:block th:each="listDailySale,stat :*{listDailySale}">
                                         <div class="form-group" >
-                                            <label class="form-label font-weight-bold" th:text="*{listDailyStock[__${stat.index}__].pisBakery.name}"></label>
+                                            <label class="form-label font-weight-bold" th:text="*{listDailySale[__${stat.index}__].pisBakery.name}"></label>
                                             <input type="number" class="form-control" min="0"
                                                    placeholder="Piece"
                                                    name="piece"
-                                                   th:field="*{listDailyStock[__${stat.index}__].piece}"  required>
+                                                   th:field="*{listDailySale[__${stat.index}__].piece}"  required>
                                         </div>
                                     </th:block>
                                     <th:block th:each="listId,stat :*{listId}">
@@ -44,7 +44,7 @@
                                     </div>
                                     <div style="margin-top: 2rem">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="/dailystock" class="btn btn-outline-primarys" style="float: right">Cancel</a>
+                                        <a href="/dailysale" class="btn btn-outline-primary" style="float: right">Cancel</a>
                                     </div>
                                 </form>
                             </div>

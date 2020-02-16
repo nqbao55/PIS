@@ -1,10 +1,7 @@
 package bao.nguyen.PIS.controller
 
 import bao.nguyen.PIS.common.BaseController
-import bao.nguyen.PIS.common.BaseService
-import bao.nguyen.PIS.form.DailyStockForm
 import bao.nguyen.PIS.form.MinMaxStockForm
-import bao.nguyen.PIS.service.DailyStockService
 import bao.nguyen.PIS.service.MinMaxStockService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -33,7 +30,7 @@ class MinMaxStockController: BaseController(){
     }
 
     @GetMapping("/editminmaxstock/{id}")
-    fun editDailyStock(@PathVariable(name = "id") id: Int, model: Model):String{
+    fun editMinMaxStock(@PathVariable(name = "id") id: Int, model: Model):String{
         var minMaxStockForm = minMaxStockService.loadEditForm(id)
         model.addAttribute("minMaxStockForm",minMaxStockForm)
         return "EditMinMaxStock"

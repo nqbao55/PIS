@@ -17,6 +17,6 @@ class LoginController {
 
     @GetMapping("/home")
     fun home(): String {
-        return "home"
+        return "Home"
     }
 }

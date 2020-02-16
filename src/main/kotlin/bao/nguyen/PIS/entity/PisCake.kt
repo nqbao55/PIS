@@ -32,12 +32,23 @@ data class PisCake (
 
 	// 
     var price :Int ? = null,
+
+	// 
+//    var photo : byte[]? = null,
     
     // PisSetting
     @OneToMany(mappedBy="pisCake")
     var listOfPisSetting:List<PisSetting> = emptyList() ,
     
-    // PisDailyStock
+    // PisDailySale
     @OneToMany(mappedBy="pisCake")
-    var listOfPisDailyStock:List<PisDailyStock> = emptyList() 
+    var listOfPisDailySale:List<PisDailySale> = emptyList() ,
+    
+    // PisStore
+    @OneToMany(mappedBy="pisCake")
+    var listOfPisStore:List<PisStore> = emptyList() ,
+    
+    // PisRequest
+    @OneToMany(mappedBy="pisCake")
+    var listOfPisRequest:List<PisRequest> = emptyList() 
 ): BaseEntity<Int>()
