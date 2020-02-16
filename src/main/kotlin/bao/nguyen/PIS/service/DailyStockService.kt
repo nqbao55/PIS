@@ -1,5 +1,6 @@
 package bao.nguyen.PIS.service
 
+import bao.nguyen.PIS.common.BaseService
 import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.entity.PisCake
 import bao.nguyen.PIS.entity.PisDailyStock
@@ -11,32 +12,21 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class DailyStockService {
+class DailyStockService : BaseService() {
     @Autowired
     lateinit var pisDailyStockRepository: PisDailyStockRepository
 
-    @Autowired
-    lateinit var cakeRepository: PisCakeRepository
-
-    @Autowired
-    lateinit var bakeryRepository: PisBakeryRepository
-
-    fun getListDailyStock():Map<PisBakery?,List<PisDailyStock>>?{
-        return pisDailyStockRepository.findAll().groupBy { it.pisBakery }
+    fun getListDailyStock():Map<PisCake?,List<PisDailyStock>>?{
+        return pisDailyStockRepository.findAll().groupBy { it.pisCake }
     }
 
-    fun getListCake():List<PisCake>{
-        return cakeRepository.findAll()
-    }
-
-    fun loadEditForm(bakeryId: Int):DailyStockForm{
-        var bakery = bakeryRepository.findById(bakeryId).get()
-        var listDailyStock = pisDailyStockRepository.findByPisBakeryIdOrderById(bakeryId)
+    fun loadEditForm(cakeId: Int):DailyStockForm{
+        var listDailyStock = pisDailyStockRepository.findByPisCakeIdOrderById(cakeId)
         var form = DailyStockForm()
-        form.bakery = bakeryRepository.findById(bakeryId).get()
+        form.cake = cakeRepository.findById(cakeId).get()
         form.listDailyStock = listDailyStock.toMutableList()
         form.listId = form.listDailyStock.groupBy { it.getId()!! }.keys.toMutableList()
-        form.id = form.bakery.getId()!!
+        form.id = form.cake.getId()!!
         return form
     }
 

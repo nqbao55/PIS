@@ -17,4 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 interface PisDailyStockRepository : JpaRepository<PisDailyStock, Int> {
     fun findByPisBakeryIdOrderById(bakeryId: Int):List<PisDailyStock>
+    fun findByPisCakeIdOrderById(bakeryId: Int):List<PisDailyStock>
 }

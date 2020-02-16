@@ -15,20 +15,36 @@
         <main class="content">
             <div class="container-fluid p-0" data-select2-id="10">
 
-                <h1 class="h3 mb-3" th:text="${dailyStockForm.cake.name}"></h1>
+                <h1 class="h3 mb-3" th:text="${minMaxStockForm.cake.name}"></h1>
 
                 <div class="row" data-select2-id="9">
                     <div class="col-12" data-select2-id="8">
                         <div class="card">
                             <div class="card-body">
-                                <form id="validation-form" class="needs-validation" novalidate method="POST"  th:action="@{/updateDailyStock}" th:object="${dailyStockForm}">
-                                    <th:block th:each="listDailyStock,stat :*{listDailyStock}">
+                                <form id="validation-form" class="needs-validation" novalidate method="POST"  th:action="@{/updateMinMaxStock}" th:object="${minMaxStockForm}">
+                                    <th:block th:each="listSetting,stat :*{listSetting}">
                                         <div class="form-group" >
-                                            <label class="form-label font-weight-bold" th:text="*{listDailyStock[__${stat.index}__].pisBakery.name}"></label>
-                                            <input type="text" class="form-control"
-                                                   placeholder="Piece"
-                                                   name="piece"
-                                                   th:field="*{listDailyStock[__${stat.index}__].piece}"  required>
+                                            <label class="form-label font-weight-bold" th:text="*{listSetting[__${stat.index}__].pisBakery.name}"></label>
+                                            <div class="row">
+                                                <div class="input-group col-6">
+                                                    <span class="input-group-prepend">
+                                                        <button class="btn btn-warning" type="button">Min Stock</button>
+                                                    </span>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="Piece"
+                                                           name="piece"
+                                                       th:field="*{listSetting[__${stat.index}__].minStock}"  required>
+                                                </div>
+                                                <div class="input-group col-6">
+                                                    <span class="input-group-prepend">
+                                                            <button class="btn btn btn-primary" type="button">Max Stock</button>
+                                                    </span>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="Piece"
+                                                           name="piece"
+                                                           th:field="*{listSetting[__${stat.index}__].maxStock}"  required>
+                                                </div>
+                                            </div>
                                         </div>
                                     </th:block>
                                     <th:block th:each="listId,stat :*{listId}">

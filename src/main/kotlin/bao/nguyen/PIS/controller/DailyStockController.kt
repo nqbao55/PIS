@@ -1,5 +1,7 @@
 package bao.nguyen.PIS.controller
 
+import bao.nguyen.PIS.common.BaseController
+import bao.nguyen.PIS.common.BaseService
 import bao.nguyen.PIS.form.DailyStockForm
 import bao.nguyen.PIS.form.PisBakeryForm
 import bao.nguyen.PIS.service.BakeryManagementService
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import javax.validation.Valid
 
 @Controller
-class DailyStockController {
+class DailyStockController : BaseController() {
     @Autowired
     lateinit var dailyStockService: DailyStockService
 
@@ -23,9 +25,9 @@ class DailyStockController {
         val dailyStock = dailyStockService.getListDailyStock()
         model.addAttribute("dailyStock",dailyStock)
 
-        // get list cake
-        val listCake = dailyStockService.getListCake()
-        model.addAttribute("listCake",listCake)
+        // get list bakery
+        val listBakery = dailyStockService.getListBakery()
+        model.addAttribute("listBakery",listBakery)
         return "DailyStock"
     }
 

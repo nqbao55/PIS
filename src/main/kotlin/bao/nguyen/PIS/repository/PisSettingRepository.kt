@@ -4,6 +4,7 @@
  */
 package bao.nguyen.PIS.repository;
 
+import bao.nguyen.PIS.entity.PisDailyStock
 import bao.nguyen.PIS.entity.PisSetting;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -15,4 +16,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 interface PisSettingRepository : JpaRepository<PisSetting, Int> {
+    fun findByPisBakeryIdOrderById(bakeryId: Int):List<PisSetting>
+    fun findByPisCakeIdOrderById(cakeId: Int):List<PisSetting>
 }
