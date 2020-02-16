@@ -31,6 +31,10 @@ data class PisBakery (
     @Size( min = 1, max = 255 )
     var name : String = String(),
 
+     @NotNull
+     @Size( min = 1, max = 255 )
+     var username : String = String(),
+
 	// 
     @NotNull
     @Size( min = 1, max = 255 )
