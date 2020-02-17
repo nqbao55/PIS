@@ -76,10 +76,10 @@ $(function() {
     });
 });
 
-$("#validation-form").submit(function(){
-    if($("#password").val()!=$("#confirm_password").val())
-    {
-        alert("password should be same");
-        return false;
-    }
-})
+// $("#validation-form").submit(function(){
+//     if($("#password").val()!=$("#confirm_password").val())
+//     {
+//         alert("password should be same");
+//         return false;
+//     }
+// })
