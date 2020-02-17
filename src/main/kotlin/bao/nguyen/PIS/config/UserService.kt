@@ -12,6 +12,6 @@ open class UserService @Autowired constructor(private val userRepository: PisUse
      * find pis user by username
      * @return PisUser
      */
-    fun findByUsername(username: String): PisUser = userRepository.findByUsername(username)
+    fun findByUsername(username: String): PisUser? = userRepository.findByUsername(username)
 
 }

@@ -3,6 +3,7 @@ package bao.nguyen.PIS.service
 import bao.nguyen.PIS.common.BaseService
 import bao.nguyen.PIS.entity.PisCake
 import bao.nguyen.PIS.entity.PisDailySale
+import bao.nguyen.PIS.entity.PisSetting
 import bao.nguyen.PIS.form.DailySaleForm
 import bao.nguyen.PIS.repository.PisDailySaleRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -32,6 +33,19 @@ class DailySaleService : BaseService() {
         form.listDailySale.forEachIndexed { index, setting ->
             var dailySale = pisDailySaleRepository.findById(form.listId[index]).get()
             dailySale.piece = form.listDailySale[index].piece
+            pisDailySaleRepository.save(dailySale)
+        }
+    }
+
+    fun initDailySaleForBakery(bakeryId:Int){
+        var listCake = getListCake()
+        for (cake in listCake){
+            var dailySale = PisDailySale()
+            dailySale.pisCake = cakeRepository.findById(cake.getId()!!).get()
+            dailySale.pisBakery = bakeryRepository.findById(bakeryId).get()
+            dailySale.piece = 0
+
+
             pisDailySaleRepository.save(dailySale)
         }
     }

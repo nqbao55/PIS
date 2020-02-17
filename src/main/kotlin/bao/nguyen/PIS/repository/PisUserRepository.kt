@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 interface PisUserRepository : JpaRepository<PisUser, Int> {
-    fun findByUsername(username: String): PisUser
+    fun findByUsername(username: String): PisUser?
 }
