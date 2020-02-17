@@ -2,15 +2,12 @@ package bao.nguyen.PIS.controller
 
 import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.form.PisBakeryForm
-import bao.nguyen.PIS.repository.PisBakeryRepository
 import bao.nguyen.PIS.service.BakeryManagementService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 import javax.validation.Valid
@@ -36,7 +33,7 @@ class BakeryManagementController {
 
     @PostMapping("addnewbakery")
     fun doAddPis(@Validated @ModelAttribute pisBakery: PisBakery):String{
-        bakeryManagementService.save(pisBakery)
+        bakeryManagementService.addNewBakery(pisBakery)
         return "redirect:/bakerymanagement"
     }
 

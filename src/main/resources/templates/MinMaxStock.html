@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <link href="./css/classic.css" rel="stylesheet">
+    <title>Daily Sale</title>
+</head>
+<body>
+<div class="wrapper">
+    <div th:insert="fragments/M1"></div>
+    <div class="main">
+        <div th:insert="fragments/H1"></div>
+        <main class="content">
+            <div class="container-fluid p-0" data-select2-id="10">
+                <h1 class="h3 mb-3">Min & Max Stock</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <div th:if="${param.success}" style="width: 90%; margin:0 auto;">
+                            <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: -1.5rem">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <div class="alert-message">
+                                    Update successfully!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-bordered" style="width:100%" th:object="${minMaxStock}">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th th:each="bakery :${listBakery}" th:text="${bakery.name}" style="text-align: center"></th>
+                                <th style="text-align: center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="list : ${minMaxStock}">
+                                <td th:text="${list.key.name}"></td>
+                                <td th:each="setting : ${list.value}" style="text-align: center">
+                                    <span class="badge badge-warning" th:text="${setting.minStock}"></span>
+                                    <span> | </span>
+                                    <span class="badge badge-primary" th:text="${setting.maxStock}"></span>
+                                </td>
+                                <td style="text-align: center">
+                                    <a th:onclick="'location.href=\''+@{/editminmaxstock/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="./js/app.js"></script>
+</body>
+</html>
