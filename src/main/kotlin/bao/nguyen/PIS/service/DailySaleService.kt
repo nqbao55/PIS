@@ -49,4 +49,17 @@ class DailySaleService : BaseService() {
             pisDailySaleRepository.save(dailySale)
         }
     }
+
+    fun initDailySaleForCake(cakeId:Int){
+        var listBakery = getListBakery()
+        for (bakery in listBakery){
+            var dailySale = PisDailySale()
+            dailySale.pisCake = cakeRepository.findById(cakeId).get()
+            dailySale.pisBakery = bakeryRepository.findById(bakery.getId()!!).get()
+            dailySale.piece = 0
+
+
+            pisDailySaleRepository.save(dailySale)
+        }
+    }
 }

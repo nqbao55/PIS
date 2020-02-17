@@ -22,4 +22,15 @@ class StoreService : BaseService() {
             pisStoreRepository.save(store)
         }
     }
+    fun initStoreForNewCake(cakeId: Int){
+        var listBakery = getListBakery()
+        for (bakery in listBakery){
+            var store = PisStore()
+            store.pisCake = cakeRepository.findById(cakeId).get()
+            store.pisBakery = bakeryRepository.findById(bakery.getId()!!).get()
+            store.piece = 0
+
+            pisStoreRepository.save(store)
+        }
+    }
 }

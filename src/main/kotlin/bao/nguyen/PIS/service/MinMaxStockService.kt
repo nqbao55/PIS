@@ -49,4 +49,17 @@ class MinMaxStockService : BaseService(){
             settingRepository.save(setting)
         }
     }
+
+    fun initSettingForCake(cakeId:Int){
+        var listBakery = getListBakery()
+        for (bakery in listBakery){
+            var setting = PisSetting()
+            setting.pisCake = cakeRepository.findById(cakeId).get()
+            setting.pisBakery = bakeryRepository.findById(bakery.getId()!!).get()
+            setting.minStock = 0
+            setting.maxStock = 0
+
+            settingRepository.save(setting)
+        }
+    }
 }
