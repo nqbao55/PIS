@@ -22,7 +22,19 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <a class="btn btn-primary font-weight-bold" href="/addnewcake"><i class="fas fa-plus"></i> New Cake</a>
+                                <div>
+                                    <a class="btn btn-primary font-weight-bold" href="/addnewcake"><i class="fas fa-plus"></i> New Cake</a>
+                                </div>
+                                <div th:if="${param.success}" style="width: 90%; margin:0 auto;">
+                                    <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: -1rem; margin-top: 1rem">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <div class="alert-message">
+                                            Update successfully!
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table id="datatables-clients" class="table table-striped" style="width:100%">

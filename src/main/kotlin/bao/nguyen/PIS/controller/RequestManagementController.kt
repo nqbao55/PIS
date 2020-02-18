@@ -2,6 +2,7 @@ package bao.nguyen.PIS.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+
 @Controller
 class RequestManagementController {
     @GetMapping("/requestmanagement")
@@ -9,5 +10,9 @@ class RequestManagementController {
         return "RequestManagement"
     }
 
+    @GetMapping("/addnewrequest")
+    fun addNewRequest(): String {
+        return "NewRequest"
+    }
 
 }

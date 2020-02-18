@@ -42,10 +42,10 @@ class CakeManagementController {
         return "EditCake"
     }
 
-    @PostMapping("/saveCake")
+    @PostMapping("/savecake")
     fun saveCake(@Valid cakeForm: PisCakeForm, model: Model):String{
         cakeManagementService.updateCake(cakeForm)
-        return "redirect:/cakemanagement"
+        return "redirect:/cakemanagement?success"
     }
 
     @RequestMapping("/deletecake/{id}")
