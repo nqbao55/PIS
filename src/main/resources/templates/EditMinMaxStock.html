@@ -11,7 +11,13 @@
 <div class="wrapper">
     <div th:insert="fragments/M1"></div>
     <div class="main">
-        <div th:insert="fragments/H1"></div>
+        <nav class="navbar navbar-expand navbar-light bg-white">
+            <a class="sidebar-toggle d-flex mr-2">
+                <i class="hamburger align-self-center"></i>
+            </a>
+            <h1 class="mt-2 ml-2">Min & Max Stock</h1>
+            <div class="navbar-collapse collapse" th:insert="fragments/H1"></div>
+        </nav>
         <main class="content">
             <div class="container-fluid p-0" data-select2-id="10">
 

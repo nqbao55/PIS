@@ -9,16 +9,10 @@
 <div class="wrapper">
     <div th:insert="fragments/M1"></div>
     <div class="main">
-        <nav class="navbar navbar-expand navbar-light bg-white">
-            <a class="sidebar-toggle d-flex mr-2">
-                <i class="hamburger align-self-center"></i>
-            </a>
-            <h1 class="mt-2 ml-2">Setting</h1>
-            <div class="navbar-collapse collapse" th:insert="fragments/H1"></div>
-        </nav>
+        <div th:insert="fragments/H1"></div>
         <main class="content">
             <div class="container-fluid p-0" data-select2-id="10">
-                <h1 class="h3 mb-3">Min & Max Stock</h1>
+                <h1 class="h3 mb-3">Daily Sale</h1>
                 <div class="card">
                     <div class="card-header">
                         <div th:if="${param.success}" style="width: 90%; margin:0 auto;">
@@ -33,7 +27,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped table-bordered" style="width:100%" th:object="${minMaxStock}">
+                        <table class="table table-striped table-bordered" style="width:100%" th:object="${dailySale}">
                             <thead>
                             <tr>
                                 <th></th>
@@ -42,15 +36,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="list : ${minMaxStock}">
+                            <tr th:each="list : ${dailySale}">
                                 <td th:text="${list.key.name}"></td>
-                                <td th:each="setting : ${list.value}" style="text-align: center">
-                                    <span class="badge badge-warning" th:text="${setting.minStock}"></span>
-                                    <span> | </span>
-                                    <span class="badge badge-primary" th:text="${setting.maxStock}"></span>
-                                </td>
+                                <td th:each="setting : ${list.value}" th:text="${setting.piece}" style="text-align: center"></td>
                                 <td style="text-align: center">
-                                    <a th:onclick="'location.href=\''+@{/editminmaxstock/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                    <a th:onclick="'location.href=\''+@{/editdailysale/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
                                 </td>
                             </tr>
                             </tbody>

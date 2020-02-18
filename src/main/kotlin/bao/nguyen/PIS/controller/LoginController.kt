@@ -9,14 +9,4 @@ class LoginController {
     fun login(): String {
         return "Login"
     }
-
-    @GetMapping("/")
-    fun index(): String {
-        return "redirect:/home"
-    }
-
-    @GetMapping("/home")
-    fun home(): String {
-        return "Home"
-    }
 }
