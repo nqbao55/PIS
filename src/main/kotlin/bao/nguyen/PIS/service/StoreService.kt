@@ -1,6 +1,7 @@
 package bao.nguyen.PIS.service
 
 import bao.nguyen.PIS.common.BaseService
+import bao.nguyen.PIS.entity.PisCake
 import bao.nguyen.PIS.entity.PisDailySale
 import bao.nguyen.PIS.entity.PisStore
 import bao.nguyen.PIS.repository.PisStoreRepository
@@ -32,5 +33,9 @@ class StoreService : BaseService() {
 
             pisStoreRepository.save(store)
         }
+    }
+
+    fun getListStore():Map<PisCake?,List<PisStore>>?{
+        return pisStoreRepository.findAll().groupBy { it.pisCake }
     }
 }

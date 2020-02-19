@@ -2,7 +2,7 @@
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
+    <link href="./css/classic.css" rel="stylesheet">
     <title>Daily Sale</title>
 </head>
 <body>
@@ -13,12 +13,12 @@
             <a class="sidebar-toggle d-flex mr-2">
                 <i class="hamburger align-self-center"></i>
             </a>
-            <h1 class="mt-2 ml-2">Setting</h1>
+            <h1 class="mt-2 ml-2">Store Management</h1>
             <div class="navbar-collapse collapse" th:insert="fragments/H1"></div>
         </nav>
         <main class="content">
             <div class="container-fluid p-0" data-select2-id="10">
-                <h1 class="h3 mb-3">Min & Max Stock</h1>
+                <h1 class="h3 mb-3">Daily Sale</h1>
                 <div class="card">
                     <div class="card-header">
                         <div th:if="${param.success}" style="width: 90%; margin:0 auto;">
@@ -31,27 +31,27 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary font-weight-bold" style="float: right">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </button>
                     </div>
                     <div class="card-body">
-                        <table id="datatables-clients" class="table table-striped" style="width:100%" th:object="${minMaxStock}">
+                        <table class="table table-striped table-bordered" style="width:100%" th:object="${listStore}">
                             <thead>
                             <tr>
                                 <th></th>
                                 <th th:each="bakery :${listBakery}" th:text="${bakery.name}" style="text-align: center"></th>
-                                <th style="text-align: center">Action</th>
+<!--                                <th style="text-align: center">Action</th>-->
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="list : ${minMaxStock}">
+                            <tr th:each="list : ${listStore}">
                                 <td th:text="${list.key.name}"></td>
-                                <td th:each="setting : ${list.value}" style="text-align: center">
-                                    <span class="badge badge-warning" th:text="${setting.minStock}"></span>
-                                    <span> | </span>
-                                    <span class="badge badge-primary" th:text="${setting.maxStock}"></span>
-                                </td>
-                                <td style="text-align: center">
-                                    <a th:onclick="'location.href=\''+@{/editminmaxstock/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                </td>
+                                <td th:each="store : ${list.value}" th:text="${store.piece}" style="text-align: center"></td>
+<!--                                <td style="text-align: center">-->
+<!--                                    <a th:onclick="'location.href=\''+@{/editdailysale/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>-->
+<!--                                </td>-->
                             </tr>
                             </tbody>
                         </table>
@@ -61,14 +61,6 @@
         </main>
     </div>
 </div>
-<script type="text/javascript" th:src="@{/js/app.js}"></script>
-<script>
-    $(function() {
-        // Datatables clients
-        $("#datatables-clients").DataTable({
-            responsive: true
-        });
-    });
-</script>
+<script src="./js/app.js"></script>
 </body>
 </html>
