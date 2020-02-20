@@ -4,6 +4,8 @@ import bao.nguyen.PIS.common.BaseService
 import bao.nguyen.PIS.entity.PisCake
 import bao.nguyen.PIS.entity.PisDailySale
 import bao.nguyen.PIS.entity.PisStore
+import bao.nguyen.PIS.form.DailySaleForm
+import bao.nguyen.PIS.form.StoreForm
 import bao.nguyen.PIS.repository.PisStoreRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -37,5 +39,22 @@ class StoreService : BaseService() {
 
     fun getListStore():Map<PisCake?,List<PisStore>>?{
         return pisStoreRepository.findAll().groupBy { it.pisCake }
+    }
+
+    fun initStoreForm(bakeryId: Int):StoreForm{
+        var form = StoreForm()
+        form.bakery = bakeryRepository.findById(bakeryId).get()
+        form.listStore = pisStoreRepository.findByPisBakeryIdOrderById(bakeryId).toMutableList()
+        form.listId = form.listStore.groupBy { it.getId()!! }.keys.toMutableList()
+        form.id = form.bakery.getId()!!
+        return form
+    }
+    fun updateStore(form: StoreForm){
+        // get list DailySale
+        form.listStore.forEachIndexed { index, data ->
+            var store = pisStoreRepository.findById(form.listId[index]).get()
+            store.piece = form.listStore[index].piece
+            pisStoreRepository.save(store)
+        }
     }
 }
