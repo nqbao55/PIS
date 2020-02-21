@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
@@ -22,7 +23,8 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <a class="btn btn-primary font-weight-bold" href="/addnewrequest"><i class="fas fa-plus"></i> New Request</a>
+                                <a class="btn btn-primary font-weight-bold" href="/addnewrequest"><i
+                                        class="fas fa-plus"></i> New Request</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatables-clients" class="table table-striped" style="width:100%">
@@ -31,22 +33,23 @@
                                         <th>No</th>
                                         <th>Bakery Name</th>
                                         <th>Cake</th>
-                                        <th>Prices</th>
-                                        <th>Request Date</th>
-                                        <th style="width: 50px">Action</th>
+                                        <th style="text-align: center">Piece</th>
+                                        <th style="text-align: center">Request Date</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Garrett Winters</td>
+                                    <tbody >
+                                    <tr th:each="list : ${listRequest}">
                                         <td></td>
                                         <td></td>
+                                        <td th:text="${list.key.name}"></td>
+                                        <td th:each="request : ${list.value}" th:text="${request.piece}"
+                                            style="text-align: center"></td>
                                         <td></td>
-                                        <td>
-
-                                        </td>
+                                        <!--                                <td style="text-align: center">-->
+                                        <!--                                    <a th:onclick="'location.href=\''+@{/editdailysale/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>-->
+                                        <!--                                </td>-->
                                     </tr>
+
 
                                     </tbody>
                                 </table>
