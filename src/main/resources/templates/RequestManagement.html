@@ -33,24 +33,18 @@
                                         <th>No</th>
                                         <th>Bakery Name</th>
                                         <th>Cake</th>
-                                        <th style="text-align: center">Piece</th>
+                                        <th style="text-align: center">Pieces</th>
                                         <th style="text-align: center">Request Date</th>
                                     </tr>
                                     </thead>
                                     <tbody >
-                                    <tr th:each="list : ${listRequest}">
-                                        <td></td>
-                                        <td></td>
-                                        <td th:text="${list.key.name}"></td>
-                                        <td th:each="request : ${list.value}" th:text="${request.piece}"
-                                            style="text-align: center"></td>
-                                        <td></td>
-                                        <!--                                <td style="text-align: center">-->
-                                        <!--                                    <a th:onclick="'location.href=\''+@{/editdailysale/{id}(id=${list.key.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>-->
-                                        <!--                                </td>-->
+                                        <tr th:each="list ,stat: ${listRequest}">
+                                        <td th:text="${stat.index} +1"></td>
+                                        <td th:text="${list.pisBakery.name}"></td>
+                                        <td th:text="${list.pisCake.name}"></td>
+                                        <td th:text="${list.piece}" style="text-align: center"></td>
+                                        <td th:text="${list.createAt}" style="text-align: center"></td>
                                     </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>

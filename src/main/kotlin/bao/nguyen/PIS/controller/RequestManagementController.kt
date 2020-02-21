@@ -1,6 +1,7 @@
 package bao.nguyen.PIS.controller
 
 import bao.nguyen.PIS.common.BaseController
+import bao.nguyen.PIS.service.CakeManagementService
 import bao.nguyen.PIS.service.RequestManagementService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping
 class RequestManagementController : BaseController(){
     @Autowired
     lateinit var requestManagementService: RequestManagementService
+
+    @Autowired
+    lateinit var cakeManagementService: CakeManagementService
 
     @GetMapping("/requestmanagement")
     fun detail(model: Model): String {
@@ -24,7 +28,9 @@ class RequestManagementController : BaseController(){
     }
 
     @GetMapping("/addnewrequest")
-    fun addNewRequest(): String {
+    fun addNewRequest(model: Model): String {
+        val listCake= cakeManagementService.findAll()
+        model.addAttribute("listCake", listCake)
         return "NewRequest"
     }
 

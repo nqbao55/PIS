@@ -29,11 +29,14 @@
                                 <div id="data" style="margin-bottom: 1rem">
                                     <form onsubmit="return AddData()">
                                         <div class="form-group">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" placeholder="Name" id="name" required>
+                                            <label class="form-label">Cake</label>
+                                            <select id="name" class="browser-default custom-select custom-select-lg mb-3">
+                                                <option th:each="list :${listCake}" th:text="${list.name}"></option>
+
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label">Quantity</label>
+                                            <label class="form-label">Pieces</label>
                                             <input type="number" class="form-control" placeholder="Quantity" id="quantity" required>
                                         </div>
                                         <button class="btn btn-primary" type="submit">Add</button>
@@ -44,8 +47,8 @@
                                     <table id="list" class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <td>Name</td>
-                                            <td>Quantity</td>
+                                            <td>Cake</td>
+                                            <td>Pieces</td>
                                             <td style="text-align: center">Action</td>
                                         </tr>
                                         </thead>
