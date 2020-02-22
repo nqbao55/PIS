@@ -21,6 +21,9 @@ data class HomeForm(
         var currentStock: Int = 0, // pieces
 
         @NotNull
+        var current: Float = 0.toFloat(), // day
+
+        @NotNull
         var dailySale: Int = 0, // pieces
 
         @NotNull
