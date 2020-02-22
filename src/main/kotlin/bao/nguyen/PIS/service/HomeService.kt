@@ -26,7 +26,7 @@ class HomeService: BaseService() {
                 var setting = stock.pisCake!!.listOfPisSetting.find { it.pisBakery!!.getId() == stock.pisBakery!!.getId() }
                 form.minStock = setting!!.minStock!!
                 form.maxStock = setting!!.maxStock!!
-                form.miss = (form.maxStock * form.dailySale) - form.currentStock
+                form.miss = ((form.maxStock * form.dailySale) - form.currentStock)/form.dailySale
 
                 listForm.add(form)
             }
