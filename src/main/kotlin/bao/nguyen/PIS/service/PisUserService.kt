@@ -28,4 +28,8 @@ class PisUserService : BaseService() {
         user.role = "USER"
         pisUserRepository.save(user)
     }
+
+    fun findByUsername(username: String):PisUser{
+        return pisUserRepository.findByUsername(username)
+    }
 }

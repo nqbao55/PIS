@@ -7,6 +7,7 @@ import bao.nguyen.PIS.repository.PisBakeryRepository
 import bao.nguyen.PIS.repository.PisUserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import javax.validation.constraints.Email
 
 @Service
 class BakeryManagementService {
@@ -35,6 +36,10 @@ class BakeryManagementService {
 
     fun get(id: Int): PisBakery {
         return pisBakeryRepository.findById(id).get()
+    }
+
+    fun findByEmail(email:String):PisBakery{
+        return pisBakeryRepository.findByEmail(email)
     }
 
     fun delete(id: Int)

@@ -21,4 +21,12 @@ class RequestManagementService : BaseService() {
         return pisRequestRepository.findAll().sortedByDescending { it.createAt }
     }
 
+    fun get(id: Int): PisRequest {
+        return pisRequestRepository.findById(id).get()
+    }
+    fun save(pisRequest: PisRequest){
+        pisRequestRepository.save(pisRequest)
+
+    }
+
 }
