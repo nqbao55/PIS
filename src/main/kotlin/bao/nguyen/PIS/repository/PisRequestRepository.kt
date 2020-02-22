@@ -15,4 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 interface PisRequestRepository : JpaRepository<PisRequest, Int> {
+    fun findByPisCakeIdOrderById(bakeryId: Int):List<PisRequest>
+
 }

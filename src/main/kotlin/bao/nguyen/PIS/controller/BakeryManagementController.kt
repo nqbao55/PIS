@@ -47,7 +47,7 @@ class BakeryManagementController {
     @PostMapping("/saveBakery")
     fun saveBakery(@Valid bakeryForm: PisBakeryForm, model: Model):String{
         bakeryManagementService.updateBakery(bakeryForm)
-        return "redirect:/bakerymanagement"
+        return "redirect:/bakerymanagement?success"
     }
 
     @RequestMapping("/delete/{id}")
