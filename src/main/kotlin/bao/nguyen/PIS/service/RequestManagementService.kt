@@ -17,8 +17,8 @@ class RequestManagementService : BaseService() {
     @Autowired
     lateinit var pisRequestRepository: PisRequestRepository
 
-    fun getListRequest(): Page<PisRequest> {
-        return pisRequestRepository.findAll(PageRequest.of(0,5, Sort.by("createAt").descending()));
+    fun getListRequest(): List<PisRequest> {
+        return pisRequestRepository.findAll().sortedByDescending { it.createAt }
     }
 
 }
