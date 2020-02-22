@@ -3,6 +3,7 @@ package bao.nguyen.PIS.controller
 import bao.nguyen.PIS.common.BaseController
 import bao.nguyen.PIS.entity.PisRequest
 import bao.nguyen.PIS.entity.PisUser
+import bao.nguyen.PIS.form.MinMaxStockForm
 import bao.nguyen.PIS.form.PisRequestForm
 import bao.nguyen.PIS.service.CakeManagementService
 import bao.nguyen.PIS.service.PisUserService
@@ -17,6 +18,7 @@ import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
+import javax.validation.Valid
 
 @Controller
 class RequestManagementController : BaseController(){
@@ -25,9 +27,6 @@ class RequestManagementController : BaseController(){
 
     @Autowired
     lateinit var cakeManagementService: CakeManagementService
-
-    @Autowired
-    lateinit var pisUserService: PisUserService
 
     @GetMapping("/requestmanagement")
     fun detail(model: Model): String {
@@ -38,16 +37,6 @@ class RequestManagementController : BaseController(){
 
     @GetMapping("/addnewrequest")
     fun addNew(model: Model): String {
-        if (SecurityContextHolder.getContext().authentication != null &&
-                SecurityContextHolder.getContext().authentication.isAuthenticated &&
-                //when Anonymous AuthenticationRequest is enabled
-                SecurityContextHolder.getContext().authentication !is AnonymousAuthenticationToken) {
-            // check is CusUser or SupUser
-            val userDetails = SecurityContextHolder.getContext().authentication.principal as UserDetails
-            var userData: PisUser = pisUserService.findByUsername(userDetails.username)
-            var bakeryid: String = userData.username
-            model.addAttribute("bakeryid", bakeryid)
-        }
         val listCake= cakeManagementService.findAll()
         model.addAttribute("listCake", listCake)
         model.addAttribute("dataForm", PisRequestForm())
@@ -57,7 +46,7 @@ class RequestManagementController : BaseController(){
     @PostMapping("addnewrequest")
     fun doAddPis(@Validated @ModelAttribute pisRequest: PisRequest):String{
         requestManagementService.save(pisRequest)
-        return "redirect:/requestmanagement"
+        return "redirect:/requestmanagement?success"
     }
 
 }
