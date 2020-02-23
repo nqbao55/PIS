@@ -2,6 +2,7 @@ package bao.nguyen.PIS.common
 
 import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.entity.PisCake
+import bao.nguyen.PIS.entity.PisSetting
 import bao.nguyen.PIS.repository.PisBakeryRepository
 import bao.nguyen.PIS.repository.PisCakeRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -119,5 +120,22 @@ abstract class BaseService {
 
     fun getListBakery():List<PisBakery>{
         return bakeryRepository.findAll()
+    }
+
+    fun findStock(cake:PisCake, bakery:PisBakery):Int{
+        var stock = bakery.listOfPisStore.find { it.pisCake!!.getId() == cake.getId() }
+        if (stock != null)
+            return stock.piece
+        return 0
+    }
+
+    fun findSetting(cake:PisCake, bakery:PisBakery):PisSetting{
+        var setting = bakery.listOfPisSetting.find { it.pisCake!!.getId() == cake.getId() }
+        return setting!!
+    }
+
+    fun findDailySale(cake:PisCake, bakery:PisBakery):Int{
+        var dailySale = bakery.listOfPisDailySale.find { it.pisCake!!.getId() == cake.getId() }
+        return dailySale!!.piece
     }
 }

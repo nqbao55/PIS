@@ -64,6 +64,10 @@ data class PisBakery (
     @OneToMany(mappedBy="pisBakery")
     var listOfPisSetting:List<PisSetting> = emptyList() ,
     
+    // PisDeliveryDetail
+    @OneToMany(mappedBy="pisBakery")
+    var listOfPisDeliveryDetail:List<PisDeliveryDetail> = emptyList() ,
+    
     // PisDailySale
     @OneToMany(mappedBy="pisBakery")
     var listOfPisDailySale:List<PisDailySale> = emptyList() ,

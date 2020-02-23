@@ -32,13 +32,14 @@ data class PisCake (
 
 	// 
     var price :Int ? = null,
-
-	// 
-//    var photo : byte[]? = null,
     
     // PisSetting
     @OneToMany(mappedBy="pisCake")
     var listOfPisSetting:List<PisSetting> = emptyList() ,
+    
+    // PisDeliveryDetail
+    @OneToMany(mappedBy="pisCake")
+    var listOfPisDeliveryDetail:List<PisDeliveryDetail> = emptyList() ,
     
     // PisDailySale
     @OneToMany(mappedBy="pisCake")
