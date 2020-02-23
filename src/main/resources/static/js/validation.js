@@ -74,6 +74,12 @@ $(function() {
             [0, "asc"]
         ]
     });
+    var datatablesButtons = $("#datatables-buttons").DataTable({
+        responsive: true,
+        lengthChange: !1,
+        buttons: ["print"]
+    });
+    datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
 });
 
 // $("#validation-form").submit(function(){
