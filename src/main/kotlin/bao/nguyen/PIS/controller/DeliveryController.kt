@@ -21,6 +21,6 @@ class DeliveryController : BaseController(){
         var listForm = deliverryService.initPreviewForm(listId)
         model.addAttribute("listForm",listForm)
 
-        return "Home"
+        return "PrintPreview"
     }
 }
