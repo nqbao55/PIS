@@ -1,5 +1,6 @@
 package bao.nguyen.PIS.controller
 
+import bao.nguyen.PIS.common.BaseController
 import bao.nguyen.PIS.entity.PisCake
 import bao.nguyen.PIS.form.PisCakeForm
 import bao.nguyen.PIS.service.CakeManagementService
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @Controller
-class CakeManagementController {
+class CakeManagementController : BaseController(){
     @Autowired
     lateinit var cakeManagementService: CakeManagementService
 

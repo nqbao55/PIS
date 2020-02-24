@@ -32,6 +32,9 @@ data class PisCake (
 
 	// 
     var price :Int ? = null,
+
+     //
+     var piece_on_tray :Int ? = null,
     
     // PisSetting
     @OneToMany(mappedBy="pisCake")

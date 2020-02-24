@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar">
+<nav id="sidebar" class="sidebar" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="sidebar-content ">
         <a class="sidebar-brand" href="/home">
             <i class="align-middle" data-feather="box"></i>
@@ -8,40 +8,45 @@
             <li class="sidebar-header">
                 Management
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/home" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i><span class="align-middle"> Home</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+<!--            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">-->
+<!--                <a href="/home" class="sidebar-link">-->
+<!--                    <i class="align-middle" data-feather="package"></i><span class="align-middle"> Delivery</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/bakerymanagement" class="sidebar-link">
                     <i class="align-middle" data-feather="home"></i><span class="align-middle"> Bakery Management</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/cakemanagement" class="sidebar-link">
                     <i class="align-middle" data-feather="stop-circle"></i> <span class="align-middle">Cake Management</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/storemanagement" class="sidebar-link">
                     <i class="align-middle" data-feather="database"></i><span class="align-middle"> Store Management</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'USER'}">
                 <a href="/requestmanagement" class="sidebar-link">
                     <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Request management</span>
                 </a>
             </li>
-            <li class="sidebar-header">
+            <li class="sidebar-header" th:if="${user_role == 'ADMIN'}">
                 Settings
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/dailysale" class="sidebar-link ">
                     <i class="align-middle" data-feather="repeat"></i> <span class="align-middle">Daily Sale</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            <li class="sidebar-item" th:if="${user_role == 'ADMIN'}">
                 <a href="/minmaxstock" class="sidebar-link ">
                     <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Min&Max Stock</span>
                 </a>

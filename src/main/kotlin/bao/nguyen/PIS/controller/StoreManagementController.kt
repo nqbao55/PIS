@@ -1,5 +1,6 @@
 package bao.nguyen.PIS.controller
 
+import bao.nguyen.PIS.common.BaseController
 import bao.nguyen.PIS.form.DailySaleForm
 import bao.nguyen.PIS.form.StoreForm
 import bao.nguyen.PIS.service.DailySaleService
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import javax.validation.Valid
 
 @Controller
-class StoreManagementControlleer {
+class StoreManagementController : BaseController(){
     @Autowired
     lateinit var storeService: StoreService
 

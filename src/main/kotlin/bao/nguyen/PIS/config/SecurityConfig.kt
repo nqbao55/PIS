@@ -41,13 +41,16 @@ open class SecurityConfig: WebSecurityConfigurerAdapter() {
                 .loginProcessingUrl("/login.do")
                 .loginPage("/login")
                 .failureHandler(AuthenticationFailureHandler())
-                .defaultSuccessUrl("/home",true)
+                .defaultSuccessUrl("/",true)
                 .usernameParameter("username").passwordParameter("password")
                 .and()
 
         http.logout()
                 .logoutRequestMatcher(AntPathRequestMatcher("/logout**"))
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .permitAll()
     }
 
     @Configuration

@@ -41,7 +41,7 @@ class DeliveryService : BaseService() {
         form.bakery = bakery
         form.cake = cake
         form.create_at = Date()
-        var currentStock = findStock(cake,bakery)
+        var currentStock = findStock(cake,bakery).piece
         var setting = findSetting(cake, bakery)
         var dailySale = findDailySale(cake,bakery)
         form.pieces = (setting.maxStock!!.toInt() * dailySale) - currentStock

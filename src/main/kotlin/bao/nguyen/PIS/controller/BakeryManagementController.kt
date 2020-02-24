@@ -1,5 +1,6 @@
 package bao.nguyen.PIS.controller
 
+import bao.nguyen.PIS.common.BaseController
 import bao.nguyen.PIS.entity.PisBakery
 import bao.nguyen.PIS.form.PisBakeryForm
 import bao.nguyen.PIS.service.BakeryManagementService
@@ -14,7 +15,7 @@ import javax.validation.Valid
 
 
 @Controller
-class BakeryManagementController {
+class BakeryManagementController : BaseController(){
     @Autowired
     lateinit var bakeryManagementService: BakeryManagementService
 

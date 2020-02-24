@@ -8,6 +8,7 @@ import bao.nguyen.PIS.entity.PisUser
 import bao.nguyen.PIS.form.PisRequestForm
 import bao.nguyen.PIS.repository.PisBakeryRepository
 import bao.nguyen.PIS.repository.PisRequestRepository
+import bao.nguyen.PIS.repository.PisStoreRepository
 import bao.nguyen.PIS.repository.PisUserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -27,6 +28,9 @@ class RequestManagementService : BaseService() {
     @Autowired
     lateinit var pisUserRepository: PisUserRepository
 
+    @Autowired
+    lateinit var pisStoreRepository: PisStoreRepository
+
     fun getListRequest(): List<PisRequest> {
         return pisRequestRepository.findAll().sortedByDescending { it.createAt }
     }
@@ -44,6 +48,11 @@ class RequestManagementService : BaseService() {
         if (pisRequest.createAt == null)
             pisRequest.createAt = Date()
         pisRequestRepository.save(pisRequest)
+
+        // Update stock of this Cake
+        var stock = findStock(pisRequest.pisCake!!, pisRequest.pisBakery!!)
+        stock.piece -= pisRequest.piece!!
+        pisStoreRepository.save(stock)
     }
 
 }

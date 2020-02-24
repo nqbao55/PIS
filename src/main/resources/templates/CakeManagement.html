@@ -44,18 +44,20 @@
                                         <th>Name</th>
                                         <th>Photo</th>
                                         <th>Price</th>
+                                        <th>Number on tray</th>
                                         <th style="width: 50px">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="list, stat : ${pisCake}">
+                                    <tr th:each="cake, stat : ${pisCake}">
                                         <td th:text="${stat.index} + 1"></td>
-                                        <td th:text="${list.name}"></td>
+                                        <td th:text="${cake.name}"></td>
                                         <td ></td>
-                                        <td th:text="${list.price}"></td>
+                                        <td th:text="${cake.price}"></td>
+                                        <td th:text="${cake.piece_on_tray}"></td>
                                         <td>
-                                            <a th:onclick="'location.href=\''+@{/editcake/{id}(id=${list.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a th:onclick="'location.href=\''+@{/deletecake/{id}(id=${list.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/editcake/{id}(id=${cake.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/deletecake/{id}(id=${cake.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     </tbody>
