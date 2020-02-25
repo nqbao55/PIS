@@ -15,10 +15,9 @@ class DeliveryController : BaseController(){
     lateinit var deliverryService: DeliveryService
 
 
-    @GetMapping("/deliverypreview/{strId}")
-    fun deliveryPreview(@PathVariable(name = "strId") strId: String, model: Model): String {
-        var listId = strId.split(",")
-        var listForm = deliverryService.initPreviewForm(listId)
+    @GetMapping("/deliverypreview/{deliveryId}")
+    fun deliveryPreview(@PathVariable(name = "deliveryId") deliveryId: Int, model: Model): String {
+        var listForm = deliverryService.initPreviewForm(deliveryId)
         model.addAttribute("listForm",listForm)
 
         return "PrintPreview"

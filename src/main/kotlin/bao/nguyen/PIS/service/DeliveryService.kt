@@ -22,31 +22,18 @@ class DeliveryService : BaseService() {
     @Autowired
     lateinit var storeService: StoreService
 
-    fun initPreviewForm(listId: List<String>):List<DeliveryForm>{
+    fun initPreviewForm(deliveryId: Int):List<DeliveryForm>{
         var listForm = mutableListOf<DeliveryForm>()
-        for (strId in listId){
-            // get Bakery
-            var bakery = bakeryRepository.findById(strId.toInt()).get()
-            var listCake = getListCake()
-            for (cake in listCake){
-                var form = initFormOfBakeryAndCake(bakery, cake)
-                listForm.add(form)
-            }
+        var delivery = pisDeliveryRepository.findById(deliveryId).get()
+        for (detail in delivery.listOfPisDeliveryDetail){
+            var form = DeliveryForm()
+            form.bakery = detail.pisBakery!!
+            form.cake = detail.pisCake!!
+            form.create_at = detail.createAt!!
+            form.pieces = detail.piece!!
+            form.tray = detail.tray!!
+            listForm.add(form)
         }
         return listForm.toList()
     }
-
-    fun initFormOfBakeryAndCake(bakery:PisBakery, cake:PisCake):DeliveryForm{
-        var form = DeliveryForm()
-        form.bakery = bakery
-        form.cake = cake
-        form.create_at = Date()
-        var currentStock = findStock(cake,bakery).piece
-        var setting = findSetting(cake, bakery)
-        var dailySale = findDailySale(cake,bakery)
-        form.pieces = (setting.maxStock!!.toInt() * dailySale) - currentStock
-        form.tray = 1.toFloat()
-        return form
-    }
-
 }

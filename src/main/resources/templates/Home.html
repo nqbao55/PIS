@@ -52,8 +52,29 @@
                             </tr>
                             </tbody>
                         </table>
-                            <button id="deliveryButton" class="btn btn-primary" disabled onclick="deliveryPreview()"><i class="fas fa-print"></i> Print</button>
+                        <form th:action="printPreview" method="POST">
+                            <button type="button" id="deliveryButton" class="btn btn-primary" disabled data-toggle="modal" data-target="#defaultModalPrimary"><i class="fas fa-print"></i> Print</button>
+                            <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Default modal</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body m-3" style="text-align: center">
+                                            <p class="mb-0">After the print, it will update the inventory.<br> So please confirm this print!</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal" style="float: left">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <input style="display: none" name="strId" id="strId" type="text">
+                        </form>
                     </div>
                 </div>
             </div>
