@@ -56,8 +56,8 @@ class MinMaxStockService : BaseService(){
             var setting = PisSetting()
             setting.pisCake = cakeRepository.findById(cakeId).get()
             setting.pisBakery = bakeryRepository.findById(bakery.getId()!!).get()
-            setting.minStock = 0
-            setting.maxStock = 0
+            setting.minStock = 1
+            setting.maxStock = 2
 
             settingRepository.save(setting)
         }

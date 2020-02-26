@@ -9,6 +9,8 @@ import bao.nguyen.PIS.form.StoreForm
 import bao.nguyen.PIS.repository.PisStoreRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
+
 @Service
 class StoreService : BaseService() {
     @Autowired
@@ -49,12 +51,34 @@ class StoreService : BaseService() {
         form.id = form.bakery.getId()!!
         return form
     }
+
     fun updateStore(form: StoreForm){
         // get list DailySale
         form.listStore.forEachIndexed { index, data ->
             var store = pisStoreRepository.findById(form.listId[index]).get()
             store.piece = form.listStore[index].piece
             pisStoreRepository.save(store)
+        }
+    }
+
+    fun dailyUpdateStore(){
+        val current = localDateTimeToString(dateToLocalDateTime(Date())!!,"yyyy-MM-dd")
+        val listStore = pisStoreRepository.findAll()
+        for (store in listStore){
+            var dailyUpdate : String = ""
+            if (store.dailyUpdate != null){
+                dailyUpdate = localDateTimeToString(dateToLocalDateTime(store.dailyUpdate)!!,"yyyy-MM-dd")
+            }
+            if (current != dailyUpdate){
+                val dailySale = findDailySale(store.pisCake!!, store.pisBakery!!)
+                store.piece -= dailySale
+                if (store.piece < 0)
+                    store.piece = 0
+                store.dailyUpdate = Date()
+                store.updateAt = Date()
+                pisStoreRepository.save(store)
+            }
+
         }
     }
 }

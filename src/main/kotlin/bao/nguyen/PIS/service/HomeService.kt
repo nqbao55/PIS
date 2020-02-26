@@ -96,6 +96,7 @@ class HomeService: BaseService() {
         // Update stock of this Cake
         var stock = findStock(cake, bakery)
         stock.piece += piece
+        stock.updateAt = Date()
         storeRepository.save(stock)
     }
 

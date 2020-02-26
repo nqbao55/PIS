@@ -2,6 +2,7 @@ package bao.nguyen.PIS.controller
 
 import bao.nguyen.PIS.common.BaseController
 import bao.nguyen.PIS.service.HomeService
+import bao.nguyen.PIS.service.StoreService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AnonymousAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam
 class HomeController : BaseController(){
     @Autowired
     lateinit var homeService: HomeService
+
+    @Autowired
+    lateinit var storeService: StoreService
 
     @GetMapping("/")
     fun index(): String {
@@ -37,6 +41,10 @@ class HomeController : BaseController(){
 
     @GetMapping("/home")
     fun home(model: Model): String {
+        // daily update Store
+        storeService.dailyUpdateStore()
+
+        // init list form
         var listForm = homeService.getStatus()
         model.addAttribute("form",listForm)
 
