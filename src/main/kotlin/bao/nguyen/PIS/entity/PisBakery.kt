@@ -36,11 +36,6 @@ data class PisBakery (
      var username : String = String(),
 
 	// 
-    @NotNull
-    @Size( min = 1, max = 255 )
-    var password : String = String(),
-
-	// 
     @Size( max = 255 )
     var address : String? = null,
 

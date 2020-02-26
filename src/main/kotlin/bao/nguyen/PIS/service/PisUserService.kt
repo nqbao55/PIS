@@ -29,7 +29,7 @@ class PisUserService : BaseService() {
         pisUserRepository.save(user)
     }
 
-    fun findByUsername(username: String):PisUser{
+    fun findByUsername(username: String):PisUser?{
         return pisUserRepository.findByUsername(username)
     }
 }

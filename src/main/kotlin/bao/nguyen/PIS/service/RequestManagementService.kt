@@ -42,7 +42,7 @@ class RequestManagementService : BaseService() {
     fun save(pisRequest: PisRequest){
         if (pisRequest.pisBakery == null){
             val userDetails = SecurityContextHolder.getContext().authentication.principal as UserDetails
-            var user: PisUser = pisUserRepository.findByUsername(userDetails.username)
+            var user: PisUser = pisUserRepository.findByUsername(userDetails.username)!!
             pisRequest.pisBakery = user.pisBakery
         }
         if (pisRequest.createAt == null)

@@ -29,7 +29,7 @@ class HomeController : BaseController(){
                 SecurityContextHolder.getContext().authentication !is AnonymousAuthenticationToken) {
             // check is CusUser or SupUser
             val userDetails = SecurityContextHolder.getContext().authentication.principal as UserDetails
-            val user = pisUserService.findByUsername(userDetails.username)
+            val user = pisUserService.findByUsername(userDetails.username)!!
             if (user.role == "ADMIN"){
                 return "redirect:/home"
             }else{

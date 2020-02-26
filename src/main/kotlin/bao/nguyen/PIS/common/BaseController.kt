@@ -24,7 +24,7 @@ abstract class BaseController  {
                 SecurityContextHolder.getContext().authentication !is AnonymousAuthenticationToken) {
             // check is CusUser or SupUser
             val userDetails = SecurityContextHolder.getContext().authentication.principal as UserDetails
-            loggedUser = pisUserService.findByUsername(userDetails.username)
+            loggedUser = pisUserService.findByUsername(userDetails.username)!!
             model.addAttribute("user_role",loggedUser.role)
             if (loggedUser.role != "ADMIN")
                 model.addAttribute("bakeryName",loggedUser.pisBakery!!.name)
