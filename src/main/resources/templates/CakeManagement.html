@@ -57,7 +57,7 @@
                                         <td th:text="${cake.piece_on_tray}"></td>
                                         <td>
                                             <a th:onclick="'location.href=\''+@{/editcake/{id}(id=${cake.id})}+'\''"><i class="align-middle mr-2" data-feather="edit-2"></i></a>
-                                            <a th:onclick="'location.href=\''+@{/deletecake/{id}(id=${cake.id})}+'\''" ><i class="align-middle" data-feather="trash"></i></a>
+                                            <a onclick="deleteBakery(id)" th:id="${cake.id}" ><i class="align-middle test" data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -73,7 +73,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script>
-    function deleteCake() {
+    function deleteBakery(id) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -84,6 +84,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
+            location.href = "/deletecake/" + id
             Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
