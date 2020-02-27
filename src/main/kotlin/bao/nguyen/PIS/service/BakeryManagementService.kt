@@ -47,14 +47,14 @@ class BakeryManagementService {
         return pisBakeryRepository.deleteById(id)
     }
 
-    fun addNewBakery(pisBakery: PisBakery):Int{
+    fun addNewBakery(pisBakery: PisBakery, pisBakeryForm: PisBakeryForm):Int{
         // Step 1: Create PisBakery
         if (pisUserRepository.findByUsername(pisBakery.username) != null){
             return 403 // Existed user
         }
         pisBakeryRepository.save(pisBakery)
         // Step 2: Create user for this Bakery
-        pisUserService.createNewUser(pisBakery.username, pisBakery.password, pisBakery.getId()!!)
+        pisUserService.createNewUser(pisBakery.username, pisBakeryForm.password, pisBakery.getId()!!)
 
         // Step 3: Add the Stock to this Bakery
         storeService.initStoreForNewBakery(pisBakery.getId()!!)

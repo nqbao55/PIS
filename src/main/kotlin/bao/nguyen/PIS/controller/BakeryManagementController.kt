@@ -33,8 +33,8 @@ class BakeryManagementController : BaseController(){
     }
 
     @PostMapping("addnewbakery")
-    fun doAddPis(@Validated @ModelAttribute pisBakery: PisBakery):String{
-        bakeryManagementService.addNewBakery(pisBakery)
+    fun doAddPis(@Validated @ModelAttribute pisBakery: PisBakery, pisBakeryForm: PisBakeryForm):String{
+        bakeryManagementService.addNewBakery(pisBakery, pisBakeryForm)
         return "redirect:/bakerymanagement"
     }
 
