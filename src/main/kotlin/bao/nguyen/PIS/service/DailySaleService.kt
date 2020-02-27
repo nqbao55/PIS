@@ -43,7 +43,7 @@ class DailySaleService : BaseService() {
             var dailySale = PisDailySale()
             dailySale.pisCake = cakeRepository.findById(cake.getId()!!).get()
             dailySale.pisBakery = bakeryRepository.findById(bakeryId).get()
-            dailySale.piece = 0
+            dailySale.piece = 1
 
 
             pisDailySaleRepository.save(dailySale)
@@ -57,8 +57,6 @@ class DailySaleService : BaseService() {
             dailySale.pisCake = cakeRepository.findById(cakeId).get()
             dailySale.pisBakery = bakeryRepository.findById(bakery.getId()!!).get()
             dailySale.piece = 1
-
-
             pisDailySaleRepository.save(dailySale)
         }
     }
