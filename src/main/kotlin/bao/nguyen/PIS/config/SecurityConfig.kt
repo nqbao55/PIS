@@ -27,8 +27,10 @@ open class SecurityConfig: WebSecurityConfigurerAdapter() {
                 "/**/favicon.ico",
                 "/images/**",
                 "/css/**",
+                "/js/**",
                 "/javascript/**",
                 "/webjars/**"
+
         )
     }
     override fun configure(http: HttpSecurity) {
