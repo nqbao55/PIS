@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div>
-                                    <a class="btn btn-primary font-weight-bold" href="/addnewcake"><i class="fas fa-plus"></i> New Cake</a>
+                                    <a class="btn btn-primary font-weight-bold" th:href="@{/addnewcake}"><i class="fas fa-plus"></i> New Cake</a>
                                 </div>
                                 <div th:if="${param.success}" style="width: 90%; margin:0 auto;">
                                     <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: -1rem; margin-top: 1rem">
