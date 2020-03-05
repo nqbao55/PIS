@@ -8,7 +8,8 @@
 
 	<!-- PICK ONE OF THE STYLES BELOW -->
 	<link rel="stylesheet" type="text/css" th:href="@{/css/classic.css}">
-	<!-- <link href="css/corporate.css" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/M1.css}">
+<!--	 <link th:href="css/M1.css" rel="stylesheet">-->
 	<!-- <link href="css/modern.css" rel="stylesheet"> -->
 
 	<!-- BEGIN SETTINGS -->
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+<div class="loader" style="display: none"></div>
 	<main class="main d-flex w-100">
 		<div class="container d-flex flex-column">
 			<div class="row h-100">
@@ -52,7 +54,7 @@
 							</div>
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form class="needs-validation" novalidate id="loginForm" method="post" th:action="@{/login.do}">
+									<form class="needs-validation" id="loginForm" method="post" th:action="@{/login.do}">
 										<div class="form-group">
 											<label>User Name</label>
 											<input class="form-control form-control-lg" type="username" name="username" placeholder="Enter your user name" required/>
@@ -74,18 +76,9 @@
 		</div>
 	</main>
 	<script type="text/javascript" th:src="@{/js/app.js}"></script>
-	<script type="text/javascript" th:src="@{/js/validation.js}"></script>
-	<script>
-		$(document).ready(function(){
-			$("#loginForm").on("submit", function(){
-				$("#btnLogin").prop("disabled", true);
-				$("#btnLogin").html(
-						`<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" style="position: relative;top: -0.125rem;"></span>Signing...`
-				);
-			});//submit
-		});//document ready
+	<script type="text/javascript" th:src="@{/js/spinner.js}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-	</script>
 </body>
 
 </html>
