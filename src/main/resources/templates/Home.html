@@ -41,13 +41,13 @@
                             <tr th:each="list : ${form}">
                                 <td th:text="${list.key.name}"></td>
                                 <td th:each="item : ${list.value}"  style="text-align: center">
-                                    <span th:text="${item.minStock}"></span>
-                                    <span>  |  </span>
+<!--                                    <span th:text="${item.minStock}"></span>-->
+<!--                                    <span>  |  </span>-->
                                     <h3 th:if="${item.current <= item.minStock}" th:text="${item.current}" class="badge badge-danger item.maxStock" style="font-size: 16px"></h3>
                                     <h3 th:if="${item.current >= 2 &&  item.current < item.maxStock}" th:text="${item.current}" class="badge badge-warning item.maxStock" style="font-size: 16px"></h3>
                                     <h3 th:if="${item.current == item.maxStock}" th:text="${item.current}" class="badge badge-success item.maxStock" style="font-size: 16px"></h3>
-                                    <span>  |  </span>
-                                    <span th:text="${item.maxStock}"></span>
+<!--                                    <span>  |  </span>-->
+<!--                                    <span th:text="${item.maxStock}"></span>-->
                                 </td>
                             </tr>
                             </tbody>
