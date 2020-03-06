@@ -40,7 +40,7 @@
                                         <td th:text="${stat.index} +1"></td>
                                         <td th:text="${#dates.format(list.createAt, 'yyyy-MM-dd')}" style="text-align: center"></td>
                                         <td style="text-align: center">
-                                            <a th:onclick="'location.href=\''+@{/deliverydetail/{id}(id=${list.id})}+'\''" ><i class="align-middle test" data-feather="eye"></i></a>
+                                            <a th:onclick="'location.href=\''+@{/deliverypreview/{id}(id=${list.id})}+'\''" ><i class="align-middle test" data-feather="eye"></i></a>
                                         </td>
                                     </tr>
                                     </tbody>

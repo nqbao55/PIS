@@ -24,9 +24,8 @@ class DeliveryManagementController : BaseController(){
         model.addAttribute("pisDelivery", pisDelivery)
         return "DeliveryManagement"
     }
-
-    @GetMapping("/deliverydetail/{deliveryId}")
-    fun deliveryDetail(@PathVariable(name = "deliveryId") deliveryId: Int, model: Model): String {
+    @GetMapping("/deliverypreview/{deliveryId}")
+    fun deliveryPreview(@PathVariable(name = "deliveryId") deliveryId: Int, model: Model): String {
         var listForm = deliveryService.initPreviewForm(deliveryId)
         model.addAttribute("listForm",listForm)
 
@@ -34,6 +33,6 @@ class DeliveryManagementController : BaseController(){
         var listBakery = delivery!!.listOfPisDeliveryDetail.groupBy { it.pisBakery }.keys.toList()
         model.addAttribute("listBakery",listBakery)
 
-        return "DeliveryDetail"
+        return "PrintPreview"
     }
 }
