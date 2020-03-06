@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#loginForm").on("submit", function(){
+    $("#spinner").on("submit", function(){
         $("#btnLogin").prop("disabled", true);
         $(".loader").show();
     });//submit

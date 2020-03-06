@@ -30,7 +30,7 @@
                     <div class="card-header">
                     </div>
                     <div class="card-body">
-                        <form id="loginForm" class="needs-validation" method="POST"  th:action="@{/saveStore}" th:object="${storeForm}">
+                        <form id="spinner" class="needs-validation" method="POST"  th:action="@{/saveStore}" th:object="${storeForm}">
                             <th:block th:each="listStore,stat :*{listStore}">
                                 <div class="form-group" >
                                     <label class="form-label font-weight-bold" th:text="*{listStore[__${stat.index}__].pisCake.name}"></label>

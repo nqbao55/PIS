@@ -32,7 +32,7 @@
                     <div class="col-12" data-select2-id="8">
                         <div class="card">
                             <div class="card-body">
-                                <form id="loginForm" class="needs-validation" method="POST"  th:action="@{/updateMinMaxStock}" th:object="${minMaxStockForm}">
+                                <form id="spinner" class="needs-validation" method="POST"  th:action="@{/updateMinMaxStock}" th:object="${minMaxStockForm}">
                                     <th:block th:each="listSetting,stat :*{listSetting}">
                                         <div class="form-group" >
                                             <label class="form-label font-weight-bold" th:text="*{listSetting[__${stat.index}__].pisBakery.name}"></label>
