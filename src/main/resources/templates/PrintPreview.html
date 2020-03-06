@@ -25,25 +25,20 @@
                     <div class="card-body">
                         <table id="datatables-buttons" class="table table-bordered" style="width:100%" th:object="${listForm}">
                             <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Bakery Name</th>
-                                <th>Cake Name</th>
-                                <th style="text-align: center;">Pieces</th>
-                                <th style="text-align: center;">Tray</th>
-                                <th>Date</th>
-                                <th>Note</th>
-                            </tr>
+                                <th>Cake name</th>
+                                <th th:each="bakery :${listBakery}" style="text-align: center">
+                                    <h5  th:text="${bakery.name}"></h5>
+                                    <span>Pieces/Tray</span>
+                                </th>
                             </thead>
                             <tbody>
-                            <tr th:each="form,stat : ${listForm}">
-                                <td th:text="${stat.index} +1" style="width: 5%"></td>
-                                <td th:text="${form.bakery.name}" style="width: 20%"></td>
-                                <td th:text="${form.cake.name}" style="width: 20%"></td>
-                                <td th:text="${form.pieces}" style="text-align: center; width: 10%"></td>
-                                <td th:text="${form.tray}" style="text-align: center; width: 10%"></td>
-                                <td th:text="${#dates.format(form.create_at, 'yyyy-MM-dd')}" style="width: 15%"></td>
-                                <td style="width: 20%"></td>
+                            <tr th:each="list : ${listForm}">
+                                <td th:text="${list.key.name}"></td>
+                                <td th:each="item : ${list.value}"  style="text-align: center">
+                                    <span th:text="${item.pieces}"></span>
+                                    <span>  /  </span>
+                                    <span th:text="${item.tray}"></span>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

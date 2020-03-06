@@ -30,6 +30,10 @@ class DeliveryManagementController : BaseController(){
         var listForm = deliveryService.initPreviewForm(deliveryId)
         model.addAttribute("listForm",listForm)
 
+        var delivery = deliveryService.getById(deliveryId)
+        var listBakery = delivery!!.listOfPisDeliveryDetail.groupBy { it.pisBakery }.keys.toList()
+        model.addAttribute("listBakery",listBakery)
+
         return "DeliveryDetail"
     }
 }
